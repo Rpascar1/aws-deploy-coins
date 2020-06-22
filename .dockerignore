@@ -1,8 +1,15 @@
 .dockerignore
-.git
-logs/
-tmp/
-# Elastic Beanstalk Files
-.elasticbeanstalk/*
-.git
-.gitignore
+# .git
+# logs/
+# tmp/
+# # Elastic Beanstalk Files
+# .elasticbeanstalk/*
+# .git
+# .gitignore
+.git*
+db/*.sqlite3
+db/*.sqlite3-journal
+log/*
+tmp/*
+Dockerfile
+README.rdoc
