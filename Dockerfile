@@ -1,42 +1,24 @@
 # Base image
 FROM ruby:2.6.6
+# gets the docker image of ruby 2.6.6 and lets us build on top of that
+
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs curl nano
+#updates and installs depenencies and packages such as nodje curl and nano for running application and command
+#line tests later on
+
 RUN mkdir /myapp
 WORKDIR /myapp
+# create a folder /myapp in the docker container and go into that folder
+
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
-RUN gem install bundler -v 2.1.4
-RUN bundle install
-COPY . /myapp
-EXPOSE 3000
-CMD bundle exec rails server -b 0.0.0.0 -p 8080
+# Copy the Gemfile and Gemfile.lock from app root directory into the /myapp/ folder in the docker container
 
-# Configure an entry point, so we don't need to specify
-# "bundle exec" for each of our commands.
-# FROM ruby:2.6.6
-# # RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs curl nano
-# # # Configure the main working directory. This is the base
-# # # directory used in any further RUN, COPY, and ENTRYPOINT
-# # # commands.
-# # RUN mkdir -p /app
-# # WORKDIR /app
-# # # Copy the Gemfile as well as the Gemfile.lock and install
-# # # the RubyGems. This is a separate step so the dependencies
-# # # will be cached unless changes to one of those two files
-# # # are made.
-# # COPY Gemfile Gemfile.lock ./
-# # RUN gem install bundler && bundle install --jobs 20 --retry 5
-# # # Copy the main application.
-# # COPY . ./
-# # # Expose port 3000 to the Docker host, so we can access it
-# # # from the outside.
-# # EXPOSE 3000
-# # # The main command to run when the container starts. Also
-# # # tell the Rails dev server to bind to all interfaces by
-# # # default.
-# # CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
-# # ENTRYPOINT ["bundle", "exec"]
-# # # The main command to run when the container starts. Also
-# # # tell the Rails dev server to bind to all interfaces by
-# # # default.
-# CMD ["rails", "server", "-b", "0.0.0.0"]
+RUN bundle install
+# Run bundle install to install gems inside the gemfile
+
+COPY . /myapp
+# Copy the whole app
+
+CMD bundle exec rails server -b 0.0.0.0 -p 8080
+#Runs commands to start application and bind server to 0.0.0.0 port 8080 for http traffic
