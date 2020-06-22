@@ -12,7 +12,6 @@ WORKDIR /myapp
 
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
-RUN gem install bundler:2.1.4
 # Copy the Gemfile and Gemfile.lock from app root directory into the /myapp/ folder in the docker container
 
 RUN bundle install
