@@ -6,20 +6,20 @@ RUN apt-get update -qq && apt-get install -y build-essential apt-utils libpq-dev
 #updates and installs depenencies and packages such as nodje curl and nano for running application and command
 #line tests later on
 
-RUN mkdir /my_app
-WORKDIR /my_app
+RUN mkdir /myapp
+WORKDIR /myapp
 # create a folder /myapp in the docker container and go into that folder
 
-COPY Gemfile /my_app/Gemfile
+COPY Gemfile /myapp/Gemfile
 RUN gem install bundler -v 2.1.4
 
-COPY Gemfile.lock /my_app/Gemfile.lock
+COPY Gemfile.lock /myapp/Gemfile.lock
 # Copy the Gemfile and Gemfile.lock from app root directory into the /myapp/ folder in the docker container
 
 RUN bundle install
 # Run bundle install to install gems inside the gemfile
 
-COPY . /my_app
+COPY . /myapp
 # Copy the whole app
 
 CMD bundle exec rails server -b 0.0.0.0 -p 8080
