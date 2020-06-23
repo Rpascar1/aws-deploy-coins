@@ -9,10 +9,19 @@ default: &default
   encoding: unicode
 
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#
+# development:
+#   <<: *default
+#   database: api_development
 
 development:
-  <<: *default
-  database: api_development
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  username: postgres
+  password:
+  pool: 5
+  database: rails_dev_coin_db
 
 
 test:
