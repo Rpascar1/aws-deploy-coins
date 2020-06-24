@@ -11,15 +11,15 @@ WORKDIR /myapp
 # create a folder /myapp in the docker container and go into that folder
 
 COPY Gemfile /myapp/Gemfile
-RUN gem install bundler -v 2.1.4
+# RUN gem install bundler -v 2.1.4
 
-RUN bundle install
-# Run bundle install to install gems inside the gemfile
+
 
 COPY Gemfile.lock /myapp/Gemfile.lock
 # Copy the Gemfile and Gemfile.lock from app root directory into the /myapp/ folder in the docker container
 
-
+RUN bundle install
+# Run bundle install to install gems inside the gemfile
 
 COPY . /myapp
 # Copy the whole app
