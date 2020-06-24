@@ -1,5 +1,5 @@
 # Base image
-FROM ruby:2.5.1-slim
+FROM ruby:2.6.6-slim
 # gets the docker image of ruby 2.5 and lets us build on top of that
 
 RUN apt-get update -qq && apt-get install -y build-essential apt-utils libpq-dev nodejs curl nano
