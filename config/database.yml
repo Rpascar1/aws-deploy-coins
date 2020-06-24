@@ -10,26 +10,26 @@ default: &default
 
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 #
-development:
-  <<: *default
-  database: api_development
-
 # development:
-#   adapter: postgresql
-#   encoding: unicode
-#   host: db
-#   username: postgres
-#   password:
-#   pool: 5
-#   database: rails_dev_coin_db
+#   <<: *default
+#   database: api_development
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  username: postgres
+  password:
+  pool: 5
+  database: sample_rails_dev_coin_db
 
 
-test:
-  <<: *default
-  database: api_test
-production:
-  <<: *default
-  database: api_production
+# test:
+#   <<: *default
+#   database: api_test
+# production:
+#   <<: *default
+#   database: api_production
 
 staging:
   adapter: postgresql
