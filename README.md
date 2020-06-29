@@ -30,11 +30,11 @@ And then execute:
 ## Usage
 
   navigate to
-  http://localhost:3000/api/v1/players/ to see the player JSON
+  http://witcher-rails-docker-alb-1580258293.us-east-1.elb.amazonaws.com//api/v1/players/ to see the player JSON
   ![Imgur](https://i.imgur.com/nn9atxr.pngs=200)
   ![Imgur](https://i.imgur.com/UFvh1k7.pngs=200)
   ![Imgur](IMAGES/JSONPLAYERS.png)
-  http://localhost:3000/api/v1/games to see the GAME json which also contains the player data
+  http://witcher-rails-docker-alb-1580258293.us-east-1.elb.amazonaws.com//api/v1/games to see the GAME json which also contains the player data
   ![Imgur](IMAGES/JSONGAME.png)
 
 To play the game copy the full index.html path which may look something like this if cloned to the desktop -
