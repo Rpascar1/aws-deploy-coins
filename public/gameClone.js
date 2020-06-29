@@ -257,7 +257,7 @@ class Game {
   }
   //change fetch call to adapter calss instance method of this
   getPlayerData() {
-    fetch('http://localhost:3000/api/v1/players/')
+    fetch('http://witcher-rails-docker-alb-1580258293.us-east-1.elb.amazonaws.com/api/v1/players/')
       .then(res => {
         if (!res.ok){
           throw res
@@ -285,7 +285,7 @@ class Game {
 
 
   postPlayer = (player) => {
-    return fetch('http://localhost:3000/api/v1/players/', {
+    return fetch('http://witcher-rails-docker-alb-1580258293.us-east-1.elb.amazonaws.com/api/v1/players/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -313,7 +313,7 @@ class Game {
 
 //make a params object to pass in for games
 postGame = (stats) => {
-  return fetch(`http://localhost:3000/api/v1/games`, {
+  return fetch(`http://witcher-rails-docker-alb-1580258293.us-east-1.elb.amazonaws.com/api/v1/games`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -348,7 +348,7 @@ postGame = (stats) => {
 
   updatePlayer(player) {
 
-    return fetch(`http://localhost:3000/api/v1/players/${player.id}`, {
+    return fetch(`http://witcher-rails-docker-alb-1580258293.us-east-1.elb.amazonaws.com/api/v1/players/${player.id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
