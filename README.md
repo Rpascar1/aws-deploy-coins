@@ -2,7 +2,7 @@
 
 This is a modified pig game variant app that stores player data in a JSON Object and displays game stats. If a player already exists the profile is used and stats updated via the rails API and Postegres Database. No password is necessary a player is created or found and used by typing in a player name.
 
-See it live here = https://tossacoin.herokuapp.com/
+See it live here = https://tossacoin.herokuapp.com/ (Unfortnately no longer working as Heroku stopped hosting for free.)
 Please be aware that since this app is hosted on Heroku there may be a loading period. 
 
 
